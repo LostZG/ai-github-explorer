@@ -82,7 +82,7 @@ export default async function Home() {
       )}
 
       <footer style={{ marginTop: 'auto', padding: '4rem 0', opacity: 0.4, fontSize: '0.9rem' }}>
-        &copy; 2026 AI GitHub Explorer • Powered by Next.js & Gemini
+        &copy; 2026 LostZG
       </footer>
     </main>
   );
