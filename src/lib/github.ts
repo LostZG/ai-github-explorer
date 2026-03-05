@@ -13,13 +13,16 @@ export async function fetchGithubProjects(): Promise<GithubProject[]> {
   const query = 'topic:ai OR topic:llm OR topic:computer-vision OR topic:multi-modal';
   const url = `https://api.github.com/search/repositories?q=${encodeURIComponent(query)}&sort=stars&order=desc&per_page=20`;
 
-  const response = await fetch(url, {
-    headers: {
-      'Accept': 'application/vnd.github.v3+json',
-      // User-Agent is required for GitHub API
-      'User-Agent': 'AI-GitHub-Explorer-App',
-    },
-  });
+  const headers: HeadersInit = {
+    'Accept': 'application/vnd.github.v3+json',
+    'User-Agent': 'AI-GitHub-Explorer-App',
+  };
+
+  if (process.env.GITHUB_TOKEN) {
+    headers['Authorization'] = `token ${process.env.GITHUB_TOKEN}`;
+  }
+
+  const response = await fetch(url, { headers });
 
   if (!response.ok) {
     throw new Error(`GitHub API failed: ${response.status} ${response.statusText}`);
