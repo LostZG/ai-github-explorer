@@ -16,18 +16,19 @@
     - [x] 编写相关测试并实现功能。
 - [x] Task: Conductor - User Manual Verification '数据集成与抓取模块' (Protocol in workflow.md)
 
-## Phase 3: UI 组件开发
-- [ ] Task: 瀑布流布局组件
-    - [ ] 编写测试验证响应式布局逻辑。
-    - [ ] 使用 CSS Grid 实现响应式瀑布流。
-- [ ] Task: 现代化 AI 感项目卡片组件
-    - [ ] 编写测试验证描述截断和悬停逻辑。
-    - [ ] 实现带渐变发光效果和悬浮动画的 UI 卡片。
-    - [ ] 集成描述截断功能和悬浮预览 (Tooltip/Overlay)。
-- [ ] Task: Conductor - User Manual Verification 'UI 组件开发' (Protocol in workflow.md)
+## Phase 3: UI 组件开发 [checkpoint: 2a2c2e9]
+- [x] Task: 瀑布流布局组件 (ad927f1)
+    - [x] 编写测试验证响应式布局逻辑。
+    - [x] 使用 CSS Grid 实现响应式瀑布流。
+- [x] Task: 现代化 AI 感项目卡片组件 (dbbd11f)
+    - [x] 编写测试验证描述截断和悬停逻辑。
+    - [x] 实现带渐变发光效果和悬浮动画的 UI 卡片 (dbbd11f)。
+    - [x] 集成描述截断功能和悬浮预览 (Tooltip/Overlay) (dbbd11f)。
+- [x] Task: Conductor - User Manual Verification 'UI 组件开发' (Protocol in workflow.md)
 
 ## Phase 4: 部署与上线
-- [ ] Task: 配置 Vercel 部署流程
+- [~] Task: 配置 Vercel 部署流程
     - [ ] 设置环境变量 (如 GitHub Token)。
     - [ ] 确保在 Vercel 环境下能正确运行。
+
 - [ ] Task: Conductor - User Manual Verification '部署与上线' (Protocol in workflow.md)
