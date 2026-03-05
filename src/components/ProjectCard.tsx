@@ -21,6 +21,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       role="article"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={() => window.open(project.html_url, '_blank')}
       style={{
         position: 'relative',
         background: 'rgba(20, 20, 20, 0.7)',
@@ -87,30 +88,36 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
       {/* Hover Overlay / Tooltip */}
       {isHovered && project.description && project.description.length > 100 && (
-        <div style={{
-          position: 'absolute',
-          top: '100%',
-          left: 0,
-          right: 0,
-          zIndex: 100,
-          marginTop: '10px',
-          background: 'rgba(15, 15, 15, 0.95)',
-          padding: '1rem',
-          borderRadius: '12px',
-          border: '1px solid var(--primary-purple)',
-          boxShadow: '0 10px 25px rgba(0, 0, 0, 0.5)',
-          fontSize: '0.9rem',
-          lineHeight: '1.5',
-          animation: 'fadeIn 0.2s ease-out'
-        }}>
-          <style>{`
-            @keyframes fadeIn {
-              from { opacity: 0; transform: translateY(-5px); }
-              to { opacity: 1; transform: translateY(0); }
-            }
-          `}</style>
-          {project.description}
-        </div>
+        <>
+          {/* Bridge to prevent flickering when moving mouse to tooltip */}
+          <div style={{ position: 'absolute', top: '100%', left: 0, right: 0, height: '12px', zIndex: 99 }} />
+          
+          <div style={{
+            position: 'absolute',
+            top: '100%',
+            left: 0,
+            right: 0,
+            zIndex: 100,
+            marginTop: '10px',
+            background: 'rgba(15, 15, 15, 0.95)',
+            padding: '1rem',
+            borderRadius: '12px',
+            border: '1px solid var(--primary-purple)',
+            boxShadow: '0 10px 25px rgba(0, 0, 0, 0.5)',
+            fontSize: '0.9rem',
+            lineHeight: '1.5',
+            animation: 'fadeIn 0.2s ease-out',
+            pointerEvents: 'none'
+          }}>
+            <style>{`
+              @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(-5px); }
+                to { opacity: 1; transform: translateY(0); }
+              }
+            `}</style>
+            {project.description}
+          </div>
+        </>
       )}
     </article>
   );
