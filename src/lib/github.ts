@@ -10,8 +10,9 @@ export interface GithubProject {
 }
 
 export async function fetchGithubProjects(): Promise<GithubProject[]> {
-  const query = 'topic:ai OR topic:llm OR topic:computer-vision OR topic:multi-modal';
-  const url = `https://api.github.com/search/repositories?q=${encodeURIComponent(query)}&sort=stars&order=desc&per_page=20`;
+  // Use the correct uppercase OR syntax for searching multiple keywords on GitHub.
+  const query = 'ai OR llm OR "machine-learning" OR "computer-vision" stars:>5000';
+  const url = `https://api.github.com/search/repositories?q=${encodeURIComponent(query)}&sort=stars&order=desc&per_page=100`;
 
   const headers: HeadersInit = {
     'Accept': 'application/vnd.github.v3+json',
