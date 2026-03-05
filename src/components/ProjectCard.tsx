@@ -30,6 +30,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         border: '1px solid rgba(255, 255, 255, 0.1)',
         transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
         transform: isHovered ? 'translateY(-10px) scale(1.02)' : 'translateY(0)',
+        zIndex: isHovered ? 50 : 1,
         boxShadow: isHovered 
           ? '0 15px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 210, 255, 0.2)' 
           : '0 5px 15px rgba(0, 0, 0, 0.3)',

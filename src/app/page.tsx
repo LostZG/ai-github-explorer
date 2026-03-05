@@ -1,18 +1,41 @@
 import MasonryGrid from '@/components/MasonryGrid';
 import ProjectCard from '@/components/ProjectCard';
 import { fetchGithubProjects } from '@/lib/github';
-import { getProjectsFromCache, saveProjectsToCache } from '@/lib/cache';
+import { getProjectsFromCache, saveProjectsToCache, getCacheStats } from '@/lib/cache';
 
 export default async function Home() {
-  let projects = await getProjectsFromCache();
+  const cachedProjects = await getProjectsFromCache() || [];
+  const { mtime, exists } = await getCacheStats();
+  
+  // 缓存过期时间（1小时 = 3600000ms）
+  const REFRESH_INTERVAL = 3600000;
+  const isOld = Date.now() - mtime > REFRESH_INTERVAL;
 
-  if (!projects || projects.length === 0) {
+  let projects = cachedProjects;
+
+  // 如果缓存为空或已过期，则触发抓取并执行“增量合并”
+  if (!exists || projects.length === 0 || isOld) {
     try {
-      projects = await fetchGithubProjects();
+      const newFetchedProjects = await fetchGithubProjects();
+      
+      // 增量合并逻辑：使用 Map 按 ID 去重
+      const projectMap = new Map();
+      
+      // 先放入旧项目
+      cachedProjects.forEach(p => projectMap.set(p.id, p));
+      // 用新抓取的项目覆盖/增加 (这样能更新 Star 数和描述)
+      newFetchedProjects.forEach(p => projectMap.set(p.id, p));
+      
+      // 转回数组并按 Star 数降序排序
+      projects = Array.from(projectMap.values())
+        .sort((a, b) => b.stargazers_count - a.stargazers_count);
+      
       await saveProjectsToCache(projects);
+      console.log(`Incremental update successful: ${projects.length} total projects.`);
     } catch (error) {
-      console.error('Failed to fetch projects:', error);
-      projects = [];
+      console.error('Failed to fetch/merge projects:', error);
+      // 如果抓取失败，至少退而求其次展示旧缓存
+      projects = cachedProjects;
     }
   }
 

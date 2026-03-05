@@ -13,6 +13,7 @@ describe('Home Page', () => {
   });
 
   it('should render the main title', async () => {
+    vi.mocked(cache.getCacheStats).mockResolvedValue({ exists: true, mtime: Date.now() });
     vi.mocked(cache.getProjectsFromCache).mockResolvedValue([
       {
         id: 1,
@@ -34,6 +35,7 @@ describe('Home Page', () => {
   });
 
   it('should show error message when no projects found', async () => {
+    vi.mocked(cache.getCacheStats).mockResolvedValue({ exists: false, mtime: 0 });
     vi.mocked(cache.getProjectsFromCache).mockResolvedValue([]);
     vi.mocked(github.fetchGithubProjects).mockRejectedValue(new Error('Fetch failed'));
 
