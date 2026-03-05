@@ -65,7 +65,7 @@ export default async function Home() {
           maxWidth: '800px',
           margin: '0 auto'
         }}>
-          探索全球最热门的 AI 开源项目。实时抓取、智能截断、极速预览。
+          探索全球最热门的 AI 开源项目。
         </p>
       </header>
 
