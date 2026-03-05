@@ -26,9 +26,8 @@
     - [x] 集成描述截断功能和悬浮预览 (Tooltip/Overlay) (dbbd11f)。
 - [x] Task: Conductor - User Manual Verification 'UI 组件开发' (Protocol in workflow.md)
 
-## Phase 4: 部署与上线
-- [~] Task: 配置 Vercel 部署流程
-    - [ ] 设置环境变量 (如 GitHub Token)。
-    - [ ] 确保在 Vercel 环境下能正确运行。
-
-- [ ] Task: Conductor - User Manual Verification '部署与上线' (Protocol in workflow.md)
+## Phase 4: 部署与上线 [checkpoint: 0c23046]
+- [x] Task: 配置 Vercel 部署流程 (4bbadbc)
+    - [x] 设置环境变量 (如 GitHub Token)。
+    - [x] 确保在 Vercel 环境下能正确运行。
+- [x] Task: Conductor - User Manual Verification '部署与上线' (Protocol in workflow.md)
