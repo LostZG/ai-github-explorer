@@ -1,0 +1,45 @@
+:root {
+  --background-color: #050505;
+  --text-color: #ffffff;
+  --primary-blue: #00d2ff;
+  --primary-purple: #9d50bb;
+  --accent-color: #0070f3;
+  --card-bg: rgba(20, 20, 20, 0.8);
+  --card-glow: 0 0 20px rgba(0, 210, 255, 0.3);
+  --hover-glow: 0 0 30px rgba(157, 80, 187, 0.5);
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-sans);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 现代化 AI 感 背景 */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, rgba(157, 80, 187, 0.05) 0%, transparent 80%),
+              radial-gradient(circle at 80% 20%, rgba(0, 210, 255, 0.05) 0%, transparent 80%);
+  pointer-events: none;
+  z-index: -1;
+}
