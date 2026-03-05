@@ -1,20 +1,20 @@
 # Implementation Plan: core_mvp_20260304 - AI 高星项目瀑布流展示页 (智能截断与悬停预览)
 
-## Phase 1: 基础环境搭建
-- [ ] Task: 初始化 Next.js (TypeScript) 项目
-    - [ ] 使用 `create-next-app` 初始化项目，并配置 TypeScript, ESLint, Prettier。
-    - [ ] 配置项目的全局样式 (CSS Modules)，设置核心色调 (电光蓝/紫)。
-- [ ] Task: Conductor - User Manual Verification '基础环境搭建' (Protocol in workflow.md)
+## Phase 1: 基础环境搭建 [checkpoint: bbac9c0]
+- [x] Task: 初始化 Next.js (TypeScript) 项目 (bbac9c0)
+    - [x] 使用 `create-next-app` 初始化项目，并配置 TypeScript, ESLint, Prettier。
+    - [x] 配置项目的全局样式 (CSS Modules)，设置核心色调 (电光蓝/紫)。
+- [x] Task: Conductor - User Manual Verification '基础环境搭建' (Protocol in workflow.md)
 
-## Phase 2: 数据集成与抓取模块
-- [ ] Task: 编写 GitHub API 抓取函数
-    - [ ] 实现针对 AI 类别 (LLM, CV, Multi-modal) 的热门项目查询。
-    - [ ] 为该模块编写单元测试 (Red Phase)。
-    - [ ] 实现抓取逻辑并确保护航测试通过 (Green Phase)。
-- [ ] Task: 本地 JSON 缓存模块
-    - [ ] 实现将抓取数据写入本地文件的逻辑。
-    - [ ] 编写相关测试并实现功能。
-- [ ] Task: Conductor - User Manual Verification '数据集成与抓取模块' (Protocol in workflow.md)
+## Phase 2: 数据集成与抓取模块 [checkpoint: 96b2c4c]
+- [x] Task: 编写 GitHub API 抓取函数 (9e7ec52)
+    - [x] 实现针对 AI 类别 (LLM, CV, Multi-modal) 的热门项目查询。
+    - [x] 为该模块编写单元测试 (Red Phase)。
+    - [x] 实现抓取逻辑并确护航测试通过 (Green Phase)。
+- [x] Task: 本地 JSON 缓存模块 (9e7ec52)
+    - [x] 实现将抓取数据写入本地文件的逻辑。
+    - [x] 编写相关测试并实现功能。
+- [x] Task: Conductor - User Manual Verification '数据集成与抓取模块' (Protocol in workflow.md)
 
 ## Phase 3: UI 组件开发
 - [ ] Task: 瀑布流布局组件
